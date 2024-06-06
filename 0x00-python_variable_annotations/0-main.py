@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
-safe_first_element =  __import__('100-safe_first_element').safe_first_element
+safely_get_value = __import__('101-safely_get_value').safely_get_value
+annotations = safely_get_value.__annotations__
 
-print(safe_first_element.__annotations__)
+print("Here's what the mappings should look like")
+for k, v in annotations.items():
+    print( ("{}: {}".format(k, v)))
