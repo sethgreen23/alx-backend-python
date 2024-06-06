@@ -7,5 +7,5 @@ def make_multiplier(multiplier: float) -> Callable[[float], float]:
     """Function to add two floats"""
     def multiply(a: float) -> float:
         """Function to add two floats"""
-        return multiplier * a  
+        return multiplier * a
     return multiply
