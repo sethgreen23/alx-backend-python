@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 
-a = __import__('4-define_variables').a
-pi = __import__('4-define_variables').pi
-i_understand_annotations = __import__('4-define_variables').i_understand_annotations
-school = __import__('4-define_variables').school
+sum_list = __import__('5-sum_list').sum_list
 
-print("a is a {} with a value of {}".format(type(a), a))
-print("pi is a {} with a value of {}".format(type(pi), pi))
-print("i_understand_annotations is a {} with a value of {}".format(type(i_understand_annotations), i_understand_annotations))
-print("school is a {} with a value of {}".format(type(school), school))
+floats = [3.14, 1.11, 2.22]
+floats_sum = sum_list(floats)
+print(floats_sum == sum(floats))
+print(sum_list.__annotations__)
+print("sum_list(floats) returns {} which is a {}".format(floats_sum, type(floats_sum)))
