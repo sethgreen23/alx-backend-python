@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 
-safely_get_value = __import__('101-safely_get_value').safely_get_value
-annotations = safely_get_value.__annotations__
+zoom_array =  __import__('102-type_checking').zoom_array
 
-print("Here's what the mappings should look like")
-for k, v in annotations.items():
-    print( ("{}: {}".format(k, v)))
+print(zoom_array.__annotations__)
