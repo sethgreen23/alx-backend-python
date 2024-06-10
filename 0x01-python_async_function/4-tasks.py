@@ -1,7 +1,4 @@
 #!/usr/bin/env python3
-"""Asynchronous coroutine"""
-
-#!/usr/bin/env python3
 """Module to Execute multiple Coroutines at the same time"""
 
 import asyncio
