@@ -1,19 +1,18 @@
 #!/usr/bin/env python3
-# countsync.py
+"""Module to Execute multiple Coroutines at the same time"""
 
+import asyncio
 import time
+from typing import List
 
-def count(index):
-    print("One "+ str(index))
-    time.sleep(1)
-    print("Two "+ str(index))
 
-def main():
-    for i in range(3):
-        count(i)
+wait_random = __import__('0-basic_async_syntax').wait_random
 
-if __name__ == "__main__":
-    s = time.perf_counter()
-    main()
-    elapsed = time.perf_counter() - s
-    print(f"{__file__} executed in {elapsed:0.2f} seconds.")
+
+async def wait_n(n: int, max_delay: int) -> List[float]:
+    """Execute multiple coroutines at the same time"""
+    lis = []
+    for i in range(n):
+        res = await wait_random(max_delay)
+        lis.append(res)
+    return sorted(lis)
