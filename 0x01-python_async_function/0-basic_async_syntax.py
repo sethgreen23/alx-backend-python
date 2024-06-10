@@ -3,10 +3,11 @@
 
 import asyncio
 import random
+import time
 
 
 async def wait_random(max_delay=10):
-    """Asyncronous coroutine"""
+    """Asyncronous coroutine that waits for a random number of seconds"""
     delay = random.uniform(0, max_delay)
-    await asyncio.sleep(delay)
+    time.sleep(delay)
     return delay
