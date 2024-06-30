@@ -1,17 +1,8 @@
 #!/usr/bin/env python3
 """Test utils for github org client."""
-import os
 import unittest
-import requests
-from functools import wraps
 from parameterized import parameterized
-from typing import (
-    Mapping,
-    Sequence,
-    Any,
-    Dict,
-    Callable,
-)
+from typing import Mapping, Sequence, Any
 from utils import access_nested_map
 
 
