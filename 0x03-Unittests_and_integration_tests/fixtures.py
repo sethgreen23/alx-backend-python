@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+"""Fixtures for github org client."""
+
 
 TEST_PAYLOAD = [
   (
