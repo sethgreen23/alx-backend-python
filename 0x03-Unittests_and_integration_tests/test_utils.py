@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+"""Test utils for github org client."""
 import os
 import unittest
 import requests
