@@ -18,9 +18,9 @@ from utils import access_nested_map
 class TestAccessNestedMap(unittest.TestCase):
     """Test access nested map"""
     @parameterized.expand([
-        ({"a": 1}, ['a'], 1),
-        ({"a": {"b": 2}}, ['a'], {"b": 2}),
-        ({"a": {"b": 2}}, ['a', 'b'], 2)
+        ('depth1', {"a": 1}, ['a'], 1),
+        ('depth2', {"a": {"b": 2}}, ['a'], {"b": 2}),
+        ('depth2_with_2_paths', {"a": {"b": 2}}, ['a', 'b'], 2)
         ])
     def test_access_nested_map(self, name: str,
                                nestd_map: Mapping,
