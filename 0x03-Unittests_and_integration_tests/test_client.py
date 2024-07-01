@@ -31,9 +31,10 @@ class TestGithubOrgClient(unittest.TestCase):
 
     def test_public_repos_url(self) -> None:
         """Test public repos url"""
-        expected = {'repos_url': 'google'}
+        expected = 'www.google.com'
+        payload = {'repos_url': expected}
         with patch("client.GithubOrgClient.org",
                    new_callable=PropertyMock) as mock_org:
-            client_object = GithubOrgClient("google")
-            mock_org.return_value = expected
-            self.assertEqual(client_object._public_repos_url, 'google')
+            client_object = GithubOrgClient(expected)
+            mock_org.return_value = payload
+            self.assertEqual(client_object._public_repos_url, expected)
