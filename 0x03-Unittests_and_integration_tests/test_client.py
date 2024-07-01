@@ -38,3 +38,28 @@ class TestGithubOrgClient(unittest.TestCase):
             client_object = GithubOrgClient(expected)
             mock_org.return_value = payload
             self.assertEqual(client_object._public_repos_url, expected)
+
+    @patch('client.get_json')
+    def test_public_repos(self, mock_get_json: Any) -> None:
+        """Test public repos"""
+        seth = {'name': 'seth', 'license': {'key': 'mit'}}
+        maria = {'name': 'maria', 'license': {'key': 'apache-2.0'}}
+        cristopher = {'name': 'cristopher', 'license': {'key': 'mpl-2.0'}}
+        mock_path = 'client.GithubOrgClient._public_repos_url'
+        mock_get_json.return_value = [seth, maria, cristopher]
+        with patch(mock_path) as mock_public_repos_url:
+            client_object = GithubOrgClient('google')
+            self.assertEqual(
+                client_object.public_repos(),
+                ['seth', 'maria', 'cristopher'])
+            self.assertEqual(
+                client_object.public_repos(license='mit'),
+                ['seth'])
+            self.assertEqual(
+                client_object.public_repos(license='mpl-2.0'),
+                ['cristopher'])
+            self.assertEqual(
+                client_object.public_repos(license='apache-2.0'),
+                ['maria'])
+            self.assertEqual(client_object.public_repos(45), [])
+            self.assertEqual(client_object.public_repos('c'), [])
